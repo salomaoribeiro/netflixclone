@@ -14,15 +14,14 @@ import React, { Component } from 'react';
 */
 
 
-const API_KEY = "32c7c1be7aa00b2bc275f61fb0aba6a3";
+const API_KEY = "api_key=32c7c1be7aa00b2bc275f61fb0aba6a3";
 const API_LANG = "language=pt-BR";
 const API_BASE = "https://api.themoviedb.org/3";
 
 const basicFetch = async (endpoint) => {
-    
-    const url = `${API_BASE}${endpoint}${API_LANG}&${API_KEY}`;
+    // console.log(`${API_BASE}${endpoint}${API_LANG}&${API_KEY}`);
 
-    const req = await fetch(`${API_BASE}${endpoint}`);
+    const req = await fetch(`${API_BASE}${endpoint}${API_LANG}&${API_KEY}`);
     const json = await req.json();
     return json;
 }
@@ -49,27 +48,27 @@ export default {
             {
                 slug : "action",
                 title : "Ação",
-                items: await basicFetch("discover/movie?with_genres=28&")
+                items: await basicFetch("/discover/movie?with_genres=28&")
             },
             {
                 slug : "comedy",
                 title : "Comédia",
-                items: await basicFetch("discover/movie?with_genres=35&")
+                items: await basicFetch("/discover/movie?with_genres=35&")
             },
             {
                 slug : "horror",
                 title : "Terror",
-                items: await basicFetch("discover/movie?with_genres=27&")
+                items: await basicFetch("/discover/movie?with_genres=27&")
             },
             {
                 slug : "romance",
                 title : "Romance",
-                items: await basicFetch("discover/movie?with_genres=10749&")
+                items: await basicFetch("/discover/movie?with_genres=10749&")
             },
             {
                 slug : "documentary",
                 title : "Documentários",
-                items: await basicFetch("discover/movie?with_genres=99&")
+                items: await basicFetch("/discover/movie?with_genres=99&")
             }
         ]
     }
