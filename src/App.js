@@ -3,6 +3,7 @@ import React, {useEffect, useState} from "react";
 import Tmdb from "./Tmdb";
 import FeatureMovie from "./components/featureMovie/FeatureMovie";
 import MovieRow from "./components/movieRow/MovieRow";
+import Header from "./components/header/Header";
 
 
 
@@ -10,6 +11,7 @@ export default () => {
 
   const [movieList, setMovieList] = useState([]);
   const [featureData, setFeatureData] = useState(null);
+  const [blackHeader, setblackHeader] = useState(false);
 
 
   useEffect(() => {
@@ -27,10 +29,26 @@ export default () => {
     }
 
     loadAll();
-  },[])
+  },[]);
+
+  useEffect(() => {
+    const scrollListner = () => {
+      if (window.scrollY > 30) {
+        setblackHeader(true);
+      } else {
+        setblackHeader(false);
+      }
+    }
+    window.addEventListener('scroll', scrollListner);
+    
+    return () => {
+      window.removeEventListener('scroll', scrollListner);
+    }
+  },[]);
 
   return (
     <div className="page">
+      <Header black={blackHeader} />
       
       {featureData && 
         
