@@ -1,7 +1,7 @@
 header {
     position: fixed;
     z-index: 999;
-    height: 90px;
+    height: 70px;
     top: 0;
     left: 0;
     right: 0;
@@ -18,7 +18,7 @@ header.black {
 }
 
 .header--logo {
-    height: 45px;
+    height: 35px;
 }
 
 .header--logo img {
@@ -26,7 +26,7 @@ header.black {
 }
 
 .header--user {
-    height: 55px;
+    height: 45px;
 }
 
 .header--user img {
