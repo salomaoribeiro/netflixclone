@@ -4,6 +4,7 @@ import Tmdb from "./Tmdb";
 import FeatureMovie from "./components/featureMovie/FeatureMovie";
 import MovieRow from "./components/movieRow/MovieRow";
 import Header from "./components/header/Header";
+import Footer from "./components/Footer";
 
 
 
@@ -60,6 +61,7 @@ export default () => {
           <MovieRow key={key} title={item.title} items={item.items}/>
         ))}
       </section>
+      <Footer/>
     </div>
   );
 }
